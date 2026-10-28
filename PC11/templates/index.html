@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PC.11 — Análise de Sentimentos</title>
+  <style>
+    :root { --pos: #1b7f3b; --neu: #8a6d00; --neg: #b3261e; --borda: #ddd; }
+    * { box-sizing: border-box; }
+    body { font-family: system-ui, sans-serif; max-width: 820px; margin: 2rem auto; padding: 0 1rem; color: #222; background: #f6f6f6; }
+    form { display: grid; gap: .6rem; background: #fff; padding: 1rem; border: 1px solid var(--borda); border-radius: 8px; }
+    input { width: 100%; padding: .5rem; border: 1px solid #bbb; border-radius: 6px; font: inherit; }
+    button { justify-self: start; padding: .5rem 1.2rem; border: 0; border-radius: 6px; background: #1f4fa3; color: #fff; font: inherit; cursor: pointer; }
+    .erro { color: var(--neg); font-weight: 600; }
+    .resumo { background: #fff; border: 1px solid var(--borda); border-radius: 8px; padding: 1rem; margin-top: 1.5rem; }
+    .estrelas { position: relative; display: inline-block; font-size: 2rem; line-height: 1; color: #ccc; }
+    .estrelas .cheias { position: absolute; inset: 0; overflow: hidden; color: #f5a623; white-space: nowrap; }
+    .opiniao { background: #fff; border: 1px solid var(--borda); border-left: 6px solid; border-radius: 6px; padding: .7rem 1rem; margin: .6rem 0; }
+    .positiva { border-left-color: var(--pos); } .neutra { border-left-color: var(--neu); } .negativa { border-left-color: var(--neg); }
+    .rotulo { font-size: .8rem; font-weight: 700; text-transform: uppercase; }
+    .positiva .rotulo { color: var(--pos); } .neutra .rotulo { color: var(--neu); } .negativa .rotulo { color: var(--neg); }
+  </style>
+</head>
+<body>
+  <h1>Análise de sentimentos de avaliações</h1>
+  <p>BOW com TF-IDF + KNeighborsClassifier. Negativa = 1 ponto, neutra = 3, positiva = 5.</p>
+
+  <form method="post">
+    <label>URL da página com avaliações
+      <input name="url" value="{{ url }}" required>
+    </label>
+    <label>Seletor CSS das avaliações (opcional)
+      <input name="seletor" value="{{ seletor }}" placeholder=".review-text">
+    </label>
+    <button type="submit">Raspar e analisar</button>
+  </form>
+
+  {% if erro %}<p class="erro">{{ erro }}</p>{% endif %}
+
+  {% if resultado %}
+  <section class="resumo">
+    {% if resultado.produto %}<h2>{{ resultado.produto }}</h2>{% endif %}
+    <span class="estrelas" aria-label="{{ resultado.estrelas }} de 5 estrelas">★★★★★<span class="cheias" style="width: {{ resultado.estrelas / 5 * 100 }}%">★★★★★</span></span>
+    <p><strong>Nota média: {{ '%.2f' % resultado.media }}</strong> ({{ resultado.estrelas }} estrelas) — {{ resultado.opinioes|length }} avaliações:
+      {{ resultado.contagem.positiva }} positivas, {{ resultado.contagem.neutra }} neutras, {{ resultado.contagem.negativa }} negativas.</p>
+  </section>
+
+  <h2>Opiniões classificadas</h2>
+  {% for o in resultado.opinioes %}
+  <div class="opiniao {{ o.sentimento }}">
+    <div class="rotulo">{{ o.sentimento }} · {{ o.pontos }} pontos</div>
+    <div>{{ o.texto }}</div>
+  </div>
+  {% endfor %}
+  {% endif %}
+</body>
+</html>

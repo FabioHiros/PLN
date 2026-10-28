@@ -1,0 +1,148 @@
+texto,sentimento
+"Produto excelente, superou todas as minhas expectativas!",positiva
+"Adorei, chegou antes do prazo e funciona perfeitamente.",positiva
+"Qualidade incrível, recomendo muito a todos.",positiva
+"Muito bom, vale cada centavo.",positiva
+"Comprei para minha mãe e ela amou, ótima compra.",positiva
+"Entrega rápida e produto de ótima qualidade.",positiva
+"Perfeito, exatamente como descrito no anúncio.",positiva
+"Estou muito satisfeito, melhor compra do ano.",positiva
+"Material resistente e acabamento impecável, nota dez.",positiva
+"Funciona muito bem, bateria dura bastante, recomendo.",positiva
+"Ótimo custo-benefício, compraria novamente sem dúvida.",positiva
+"Lindo, confortável e muito bem embalado.",positiva
+"Superou o que eu esperava, estou encantado.",positiva
+"Atendimento excelente e produto maravilhoso.",positiva
+"Gostei muito, fácil de usar e muito eficiente.",positiva
+"Recomendo demais, produto top e loja confiável.",positiva
+"Maravilhoso, uso todos os dias e continua perfeito.",positiva
+"Som potente e de ótima qualidade, amei.",positiva
+"Chegou bem embalado e funcionando, muito feliz com a compra.",positiva
+"Excelente produto, a melhor marca que já usei.",positiva
+"Valeu muito a pena, qualidade surpreendente.",positiva
+"Muito satisfeita, produto bonito e durável.",positiva
+"Nota máxima, tudo perfeito do pedido à entrega.",positiva
+"Fantástico, resolveu meu problema e ainda economizei.",positiva
+"Produto péssimo, quebrou na primeira semana.",negativa
+"Horrível, não funciona e o vendedor não responde.",negativa
+"Não gostei, a qualidade é muito ruim.",negativa
+"Chegou com defeito e a troca foi uma dor de cabeça.",negativa
+"Dinheiro jogado fora, não recomendo a ninguém.",negativa
+"Muito ruim, totalmente diferente do anúncio.",negativa
+"Pior compra que já fiz, arrependido.",negativa
+"Entrega atrasou um mês e o produto veio quebrado.",negativa
+"Material frágil e acabamento horrível.",negativa
+"Não funciona, liguei e desligou sozinho, decepcionante.",negativa
+"Bateria não dura nada, uma decepção total.",negativa
+"Veio faltando peças e ninguém resolve, péssimo atendimento.",negativa
+"Produto falsificado, muito diferente do original.",negativa
+"Esquenta muito e parou de funcionar, não comprem.",negativa
+"Terrível, desperdício de dinheiro.",negativa
+"Odiei, desconfortável e de baixa qualidade.",negativa
+"Nunca mais compro nessa loja, produto com defeito.",negativa
+"Barulhento, fraco e caro, não vale a pena.",negativa
+"Arrependimento total, devolvi no mesmo dia.",negativa
+"Estragou rápido, qualidade lamentável.",negativa
+"Não recomendo, veio sujo e riscado.",negativa
+"Uma porcaria, não serve para nada.",negativa
+"Decepcionado, quebrou ao abrir a caixa.",negativa
+"Muito inferior ao esperado, péssima experiência.",negativa
+"Produto razoável, cumpre o básico.",neutra
+"É ok, nada de especial.",neutra
+"Funciona, mas poderia ser melhor.",neutra
+"Normal, igual a qualquer outro do mercado.",neutra
+"Mediano, nem bom nem ruim.",neutra
+"Atende ao que precisa, sem grandes surpresas.",neutra
+"Esperava um pouco mais, mas serve para o uso diário.",neutra
+"Produto comum, o preço é justo.",neutra
+"Chegou no prazo, ainda estou testando.",neutra
+"Faz o que promete, apenas isso.",neutra
+"Regular, tem pontos positivos e negativos.",neutra
+"É aceitável pelo preço que paguei.",neutra
+"Não é o melhor, mas também não é o pior.",neutra
+"Cumpre a função, design simples.",neutra
+"Satisfatório, sem nada que chame atenção.",neutra
+"Dentro do esperado para essa faixa de preço.",neutra
+"O produto é mais ou menos, dá para usar.",neutra
+"Bom em alguns aspectos e fraco em outros.",neutra
+"Ainda não sei dizer se gostei, parece razoável.",neutra
+"Recebi conforme o pedido, uso básico.",neutra
+"Medíocre, serve mas não impressiona.",neutra
+"Qualidade média, poderia ter um acabamento melhor.",neutra
+"Simples e funcional, nada além disso.",neutra
+"Tamanho padrão, cor conforme a foto, uso normal.",neutra
+"Ótimo produto, recomendo.",positiva
+"Muito bom mesmo, gostei bastante.",positiva
+"Excelente qualidade e entrega rápida.",positiva
+"Amei o produto, é lindo e funciona muito bem.",positiva
+"Produto ótimo, chegou certinho e bem embalado.",positiva
+"Recomendo, muito bom e barato.",positiva
+"Gostei demais, superou minhas expectativas.",positiva
+"Qualidade excelente, estou muito feliz.",positiva
+"Comprei de novo porque é muito bom.",positiva
+"Perfeito para o dia a dia, adorei.",positiva
+"Ótima compra, produto bonito e resistente.",positiva
+"Funciona perfeitamente, recomendo a loja.",positiva
+"Show de bola, vale muito a pena.",positiva
+"Produto muito bom, a qualidade me surpreendeu.",positiva
+"Excelente, rápido e eficiente.",positiva
+"Amei, super confortável e de ótima qualidade.",positiva
+"Tudo certo, produto excelente e entrega antes do prazo.",positiva
+"Muito satisfeito, recomendo sem medo.",positiva
+"Ótimo atendimento e produto de primeira.",positiva
+"Adorei a cor e o tamanho, muito bom.",positiva
+"Melhor produto que já comprei, excelente.",positiva
+"Bom demais, funciona melhor do que eu imaginava.",positiva
+"Produto incrível, recomendo para todos.",positiva
+"Estou adorando, qualidade ótima.",positiva
+"Superou expectativas, muito bem feito.",positiva
+"Ruim, não recomendo.",negativa
+"Péssimo produto, quebrou logo.",negativa
+"Não gostei nada, qualidade péssima.",negativa
+"Horrível, chegou quebrado e sujo.",negativa
+"Muito ruim, parou de funcionar em dois dias.",negativa
+"Não recomendo, produto de péssima qualidade.",negativa
+"Decepção, não funciona como prometido.",negativa
+"Produto ruim e entrega atrasada.",negativa
+"Não vale o preço, muito fraco.",negativa
+"Péssima experiência, nunca mais compro.",negativa
+"Veio errado e o atendimento é horrível.",negativa
+"Não gostei, muito desconfortável.",negativa
+"Quebrou na primeira utilização, péssimo.",negativa
+"Defeituoso, não liga.",negativa
+"Muito ruim, me arrependi da compra.",negativa
+"Qualidade horrível, parece brinquedo.",negativa
+"Não funciona, quero meu dinheiro de volta.",negativa
+"Produto péssimo, não comprem.",negativa
+"Ruim demais, desmontou sozinho.",negativa
+"Fraco e frágil, não recomendo a compra.",negativa
+"Uma decepção, a pior qualidade possível.",negativa
+"Não serve, tamanho errado e material ruim.",negativa
+"Horrível, cheiro forte e acabamento péssimo.",negativa
+"Entrega demorou demais e o produto veio com defeito.",negativa
+"Não presta, estragou em uma semana.",negativa
+"Razoável, nada demais.",neutra
+"Ok, cumpre o que promete.",neutra
+"Produto mediano, serve.",neutra
+"Normal, sem surpresas.",neutra
+"É razoável pelo preço.",neutra
+"Mais ou menos, poderia ser melhor.",neutra
+"Funciona, mas é bem simples.",neutra
+"Nada demais, produto comum.",neutra
+"Atende o básico, sem destaque.",neutra
+"Médio, nem ótimo nem péssimo.",neutra
+"Serve para o que preciso, nada além.",neutra
+"Produto regular, qualidade mediana.",neutra
+"Ok pelo preço, sem grandes expectativas.",neutra
+"Chegou certo, ainda não usei muito.",neutra
+"É um produto comum, faz o básico.",neutra
+"Razoável, tem prós e contras.",neutra
+"Poderia ser melhor, mas dá para usar.",neutra
+"Neutro, não tenho muito a dizer.",neutra
+"Esperava mais, mas é aceitável.",neutra
+"Normal, igual ao que eu já tinha.",neutra
+"Cumpre o esperado, sem nada de especial.",neutra
+"Qualidade ok, preço ok.",neutra
+"Satisfaz o básico, nada mais.",neutra
+"É mediano, não impressiona.",neutra
+"Faz o serviço, porém sem capricho.",neutra
