@@ -4,7 +4,9 @@ O sistema classifica cada avaliação de um produto como **negativa** (1 ponto),
 **positiva** (5 pontos) e publica as opiniões classificadas com a nota média em estrelas. Usa bag of words
 com TF-IDF e `KNeighborsClassifier` (scikit-learn).
 
-Para a apresentação: [`COMO_FUNCIONA.md`](COMO_FUNCIONA.md) — um resumo curto do sistema e, depois, cada etapa
+O projeto fica na pasta [`PC11/`](PC11); todos os arquivos citados abaixo estão nela.
+
+Para a apresentação: [`COMO_FUNCIONA.md`](PC11/COMO_FUNCIONA.md) — um resumo curto do sistema e, depois, cada etapa
 em detalhe (por quê, como e resultado), com diagramas do treinamento e da classificação.
 
 ## Onde está cada etapa
