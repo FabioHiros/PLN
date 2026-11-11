@@ -4,7 +4,8 @@ O sistema classifica cada avaliação de um produto como **negativa** (1 ponto),
 **positiva** (5 pontos) e publica as opiniões classificadas com a nota média em estrelas. Usa bag of words
 com TF-IDF e `KNeighborsClassifier` (scikit-learn).
 
-Explicação de cada etapa (por quê, como e resultado), para a apresentação: [`COMO_FUNCIONA.md`](COMO_FUNCIONA.md).
+Para a apresentação: [`COMO_FUNCIONA.md`](COMO_FUNCIONA.md) — um resumo curto do sistema e, depois, cada etapa
+em detalhe (por quê, como e resultado), com diagramas do treinamento e da classificação.
 
 ## Onde está cada etapa
 
@@ -32,11 +33,22 @@ define o rótulo: 1–2 estrelas = negativa, 3 = neutra, 4–5 = positiva.
   **acurácia de 69%** (F1: negativa 0,79 · neutra 0,51 · positiva 0,73).
 - `dados/produto_demo.csv` — as 40 avaliações reais da Panela de Pressão Rochedo (produto fora do treino;
   média real 3,6). O sistema acerta 29 de 40 e dá 4,0 estrelas.
-- `dados/modelo.joblib` — o modelo treinado (TF-IDF + KNN, ~8 MB), gerado pelo comando `treinar`. A aplicação web
-  apenas carrega este arquivo (0,1 s); ela nunca treina sozinha. O arquivo depende da versão do scikit-learn
-  fixada em `requirements.txt`.
-- `treino.csv` e `produto_demo.csv` são gerados pelo comando `dados`. O CSV original (~50 MB) fica em
+- `dados/modelo.joblib` — o modelo treinado (~8 MB), gerado pelo comando `treinar`: léxico do BOW, IDF do TF-IDF
+  e os 15.000 vetores com seus rótulos (sem os textos). A aplicação web apenas carrega este arquivo (0,1 s); ela
+  nunca treina sozinha. O arquivo depende da versão do scikit-learn fixada em `requirements.txt`.
+- `treino.csv` e `produto_demo.csv` são gerados pelo comando `dados`. O CSV original do B2W (~50 MB) fica em
   `dados/b2w/` e não é versionado.
+
+**Quem baixar o projeto não precisa do B2W:** os arquivos acima já estão no repositório. O CSV original só é
+usado pelo comando `dados` (que o baixa automaticamente). O que cada comando usa:
+
+| Comando | Arquivos necessários |
+|---|---|
+| `servidor`, `classificar` | `modelo.joblib` |
+| `explicar` | `modelo.joblib` + `treino.csv` (o modelo não guarda os textos; o CSV mostra o que cada vizinho escreveu) |
+| `publicar` | `modelo.joblib` + `produto_demo.csv` |
+| `treinar`, `avaliar` | `treino.csv` (+ `produto_demo.csv` e `modelo.joblib` no `avaliar`) |
+| `dados` | B2W-Reviews01 (baixado automaticamente) |
 
 ## Como executar
 
@@ -85,7 +97,7 @@ sozinho; o servidor apenas carrega o modelo salvo e, se ele não existir, avisa 
 | `python comandos.py treinar [--k 25]` | Treina o modelo e salva em `dados/modelo.joblib` |
 | `python comandos.py avaliar [--k 25]` | Relatório de acurácia: validação cruzada (~25 s) e acertos do modelo salvo no produto da demonstração |
 | `python comandos.py classificar "texto"` | Classifica uma avaliação com o modelo salvo |
-| `python comandos.py explicar "texto" [--vizinhos 10]` | Mostra cada etapa para uma avaliação: pré-processamento, pesos TF-IDF, votação dos vizinhos e pontos |
+| `python comandos.py explicar "texto" [--vizinhos 10]` | Mostra cada etapa para uma avaliação: pré-processamento, tabela BOW → IDF → TF-IDF, os vizinhos mais próximos com o peso de cada voto, a apuração e os pontos |
 | `python comandos.py publicar` | Classifica o produto da demonstração e gera `resultado_publicado.html` |
 | `python comandos.py servidor` | Inicia a aplicação web em <http://127.0.0.1:5000> |
 
