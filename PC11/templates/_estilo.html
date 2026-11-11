@@ -1,0 +1,16 @@
+  <style>
+    :root { --pos: #1b7f3b; --neu: #8a6d00; --neg: #b3261e; --borda: #ddd; }
+    * { box-sizing: border-box; }
+    body { font-family: system-ui, sans-serif; max-width: 820px; margin: 2rem auto; padding: 0 1rem; color: #222; background: #f6f6f6; }
+    form { display: grid; gap: .6rem; background: #fff; padding: 1rem; border: 1px solid var(--borda); border-radius: 8px; }
+    input, textarea { width: 100%; padding: .5rem; border: 1px solid #bbb; border-radius: 6px; font: inherit; }
+    button { justify-self: start; padding: .5rem 1.2rem; border: 0; border-radius: 6px; background: #1f4fa3; color: #fff; font: inherit; cursor: pointer; }
+    .erro { color: var(--neg); font-weight: 600; }
+    .resumo { background: #fff; border: 1px solid var(--borda); border-radius: 8px; padding: 1rem; margin-top: 1.5rem; }
+    .estrelas { position: relative; display: inline-block; font-size: 2rem; line-height: 1; color: #ccc; }
+    .estrelas .cheias { position: absolute; inset: 0; overflow: hidden; color: #f5a623; white-space: nowrap; }
+    .opiniao { background: #fff; border: 1px solid var(--borda); border-left: 6px solid; border-radius: 6px; padding: .7rem 1rem; margin: .6rem 0; }
+    .positiva { border-left-color: var(--pos); } .neutra { border-left-color: var(--neu); } .negativa { border-left-color: var(--neg); }
+    .rotulo { font-size: .8rem; font-weight: 700; text-transform: uppercase; }
+    .positiva .rotulo { color: var(--pos); } .neutra .rotulo { color: var(--neu); } .negativa .rotulo { color: var(--neg); }
+  </style>

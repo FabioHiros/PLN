@@ -1,42 +1,24 @@
-"""PC.11 — Analisador de sentimentos de avaliações de produtos (Flask)."""
+"""Aplicação web (Flask): avaliações coladas -> opiniões classificadas e nota em estrelas."""
 
-from collections import Counter
+from flask import Flask, render_template, request
 
-import requests
-from flask import Flask, render_template, request, url_for
-
-import raspagem
-import sentimento
+from etapa1_entrada import ler_texto_colado
+from etapa4_treinamento import carregar_modelo
+from pipeline import analisar_opinioes
 
 app = Flask(__name__)
-modelo = sentimento.treinar()
+modelo = carregar_modelo()  # treinado antes com: python comandos.py treinar
 
 
 @app.route("/", methods=["GET", "POST"])
 def index():
-    url_demo = url_for("static", filename="avaliacoes_demo.html", _external=True)
-    url = request.form.get("url", "").strip() or url_demo
-    seletor = request.form.get("seletor", "").strip() or None
-    contexto = {"url": url, "seletor": seletor or "", "resultado": None, "erro": None}
+    """GET: mostra o formulário vazio. POST: classifica as avaliações enviadas e mostra o
+    resultado abaixo do formulário. O nome do produto é só o título; não afeta a classificação."""
+    if request.method == "GET":
+        return render_template("index.html", produto="", avaliacoes="", resultado=None, erro=None)
 
-    if request.method == "POST":
-        try:
-            produto, opinioes = raspagem.raspar(url, seletor)
-        except requests.RequestException as e:
-            contexto["erro"] = f"Não foi possível acessar a página: {e}"
-            return render_template("index.html", **contexto)
-
-        if not opinioes:
-            contexto["erro"] = "Nenhuma avaliação encontrada. Informe o seletor CSS das avaliações."
-            return render_template("index.html", **contexto)
-
-        resultado = sentimento.classificar(modelo, opinioes)
-        resultado["produto"] = produto
-        resultado["contagem"] = Counter(o["sentimento"] for o in resultado["opinioes"])
-        contexto["resultado"] = resultado
-
-    return render_template("index.html", **contexto)
-
-
-if __name__ == "__main__":
-    app.run(debug=True)
+    produto = request.form.get("produto", "").strip()
+    avaliacoes = request.form.get("avaliacoes", "")
+    resultado = analisar_opinioes(modelo, produto or None, ler_texto_colado(avaliacoes))
+    erro = "Informe ao menos uma avaliação." if resultado is None else None
+    return render_template("index.html", produto=produto, avaliacoes=avaliacoes, resultado=resultado, erro=erro)

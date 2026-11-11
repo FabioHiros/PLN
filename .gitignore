@@ -1,1 +1,5 @@
 venv/
+__pycache__/
+.ipynb_checkpoints/
+PC11/dados/b2w/
+PC11/resultado_publicado.html

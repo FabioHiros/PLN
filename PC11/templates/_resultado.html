@@ -1,0 +1,14 @@
+  <section class="resumo">
+    {% if resultado.produto %}<h2>{{ resultado.produto }}</h2>{% endif %}
+    <span class="estrelas" aria-label="{{ resultado.estrelas }} de 5 estrelas">★★★★★<span class="cheias" style="width: {{ resultado.estrelas / 5 * 100 }}%">★★★★★</span></span>
+    <p><strong>Nota média: {{ '%.2f' % resultado.media }}</strong> ({{ resultado.estrelas }} estrelas) — {{ resultado.opinioes|length }} avaliações:
+      {{ resultado.contagem.positiva }} positivas, {{ resultado.contagem.neutra }} neutras, {{ resultado.contagem.negativa }} negativas.</p>
+  </section>
+
+  <h2>Opiniões classificadas</h2>
+  {% for o in resultado.opinioes %}
+  <div class="opiniao {{ o.sentimento }}">
+    <div class="rotulo">{{ o.sentimento }} · {{ o.pontos }} ponto{{ 's' if o.pontos > 1 }}</div>
+    <div>{{ o.texto }}</div>
+  </div>
+  {% endfor %}
